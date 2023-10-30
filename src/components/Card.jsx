@@ -2,7 +2,7 @@ import React from "react";
 import { images } from "../constans";
 export default function Card({ posts }) {
   return (
-    <div>
+    <div className="">
       {posts.map((index, i) => {
         return (
           <div className="flex card lg:card-side bg-base-100 shadow-xl    mx-auto w-[800px]  my-12">
