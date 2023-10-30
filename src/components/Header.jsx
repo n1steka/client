@@ -1,30 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { images } from "../constans";
 import Profile from "./Profile";
-export const header = [
-  {
-    name: "Home",
-    url: "/",
-  },
-  {
-    name: "My post",
-    url: "/MyPost",
-  },
-  {
-    name: "Post",
-    url: "/Post",
-  },
-  {
-    name: "Notification",
-    url: "/",
-  },
-  {
-    name: "Login",
-    url: "/login",
-  },
-];
 
 export default function Header() {
+  const header = [
+    {
+      name: "Home",
+      url: "/",
+    },
+    {
+      name: "My post",
+      url: "/MyPost",
+    },
+    {
+      name: "Post",
+      url: "/Post",
+    },
+    {
+      name: "Notification",
+      url: "/",
+    },
+  ];
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="navbar bg-base-100  lg:px-12 xl:px-12    sticky ">
       <div className="flex-1">
@@ -37,8 +34,7 @@ export default function Header() {
           {header.map((index) => {
             return (
               <div className="">
-                <li className=" px-4 cursor-pointer  ">
-                  {" "}
+                <li className=" px-4 cursor-pointer">
                   <a href={index.url}>{index.name}</a>
                 </li>
               </div>
@@ -54,7 +50,7 @@ export default function Header() {
             className="input input-bordered w-24 md:w-auto"
           />
         </div>
-        <Profile />
+        {user ? <Profile /> : <a href="/login">Login</a>}
       </div>
     </div>
   );

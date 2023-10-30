@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function PostForm() {
+  const token = localStorage.getItem("token");
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -15,12 +16,17 @@ export default function PostForm() {
     info.set("description", data.description);
     info.set("file", data.file);
     await axios
-      .post("http://localhost:8000/api/v1/post", info)
+      .post("http://localhost:8000/api/v1/post", info, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(() => {
         alert("Нийтлэл амжилттай");
       })
       .catch((er) => alert(er.response.data.error));
   };
+
   const onInputChange = (event) => {
     const { value, name } = event.target;
     setData({
@@ -57,6 +63,9 @@ export default function PostForm() {
           </div>
           <textarea
             placeholder="Тайлбар"
+            name="description"
+            onChange={onInputChange}
+            value={data.description}
             className="textarea textarea-bordered textarea-lg w-full"
           ></textarea>
 
