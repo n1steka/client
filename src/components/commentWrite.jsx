@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-
+// import axiosUrl from '../utils/axioxUrl';
 export default function CommentWrite({ post_id }) {
+    // console.log(axiosUrl)
     console.log(post_id, "post ID ")
     const token = localStorage.getItem("token");
     const [data, setData] = useState({
