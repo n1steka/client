@@ -7,6 +7,7 @@ export default function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
   const onlogout = (e) => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/");
   };
 

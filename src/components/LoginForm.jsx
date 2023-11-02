@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function LoginForm() {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
   const [data, setData] = useState({
     email: "",
     password: "",
