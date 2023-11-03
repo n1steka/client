@@ -1,6 +1,7 @@
 import React from "react";
 import { images } from "../constans";
 import CommentWrite from "./commentWrite";
+import DetailModal from "../components/DetailModal";
 export default function Card({ posts }) {
   return (
     <div className="">
@@ -20,6 +21,7 @@ export default function Card({ posts }) {
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
               <p>{index.description}</p>
               <CommentWrite post_id={index._id} />
+              <DetailModal postId={index._id} />
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Listen</button>
               </div>
