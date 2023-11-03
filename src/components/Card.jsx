@@ -14,7 +14,10 @@ export default function Card({ posts }) {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{index.title}</h2>
+              <span className=" text-2xl font-semibold underline">
+                {posts[0]?.createUser?.name}
+              </span>
+              <h2 className="  text-xl font-medium"> title : {index.title}</h2>
               <p>{index.description}</p>
               <CommentWrite post_id={index._id} />
               <div className="card-actions justify-end">
