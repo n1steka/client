@@ -4,6 +4,7 @@ import MyPost from "./pages/MyPost";
 import Addpost from "./pages/Addpost";
 import LoginPage from "./pages/LoginPage";
 import Profile from "./pages/Profile";
+import DetailModal from "./components/DetailModal";
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
           <Route element={<Addpost />} path="/Post" />
           <Route element={<LoginPage />} path="/login" />
           <Route element={<Profile />} path="/profile" />
+          <Route element={<DetailModal />} path="/read/:id" />
         </Routes>
       </Router>
     </div>
