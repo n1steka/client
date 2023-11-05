@@ -17,17 +17,16 @@ export default function Card({ posts }) {
             </figure>
             <div className="card-body">
               <span className=" text-2xl font-semibold underline">
-                {posts[0]?.createUser?.name}
+                {posts[i]?.createUser?.name}{" "}
               </span>
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
               <p>{index.description}</p>
               <CommentWrite post_id={index._id} />
-              <Link to={`read/${index._id}`}>
-                <DetailModal postId={index._id} />
-              </Link>
 
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Listen</button>
+                <Link to={`read/${index._id}`}>
+                  <button className="btn btn-primary">Дэлгэрэнгүй</button>{" "}
+                </Link>
               </div>
             </div>
           </div>
