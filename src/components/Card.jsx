@@ -17,7 +17,7 @@ export default function Card({ posts }) {
               />
             </figure>
             <div className="card-body">
-              <span className=" text-2xl font-semibold underline">
+              <span className=" text-2xl font-semibold underline">  
                 {posts[i]?.createUser?.name}{" "}
               </span>
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
@@ -35,8 +35,8 @@ export default function Card({ posts }) {
 
               <DetailModal
                 title={posts[el]?.title}
-                id={posts[el]?.title}
-                name={posts[el]?.title}
+                description={posts[el]?.description}
+                name={posts[el]?.name}
                 img={posts[el]?.photo}
               />
               <div className="card-actions justify-end">
