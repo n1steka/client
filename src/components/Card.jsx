@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { images } from "../constans";
 import CommentWrite from "./commentWrite";
 import DetailModal from "../components/DetailModal";
 import { Link } from "react-router-dom";
 export default function Card({ posts }) {
+  const [el, setEl] = useState(0);
   return (
     <div className="">
       {posts.map((index, i) => {
@@ -22,7 +23,22 @@ export default function Card({ posts }) {
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
               <p>{index.description}</p>
               <CommentWrite post_id={index._id} />
+              <button
+                className="btn"
+                onClick={() => {
+                  setEl(i);
+                  document.getElementById("my_modal_1").showModal();
+                }}
+              >
+                open modal
+              </button>
 
+              <DetailModal
+                title={posts[el]?.title}
+                id={posts[el]?.title}
+                name={posts[el]?.title}
+                img={posts[el]?.photo}
+              />
               <div className="card-actions justify-end">
                 <Link to={`read/${index._id}`}>
                   <button className="btn btn-primary">Дэлгэрэнгүй</button>{" "}

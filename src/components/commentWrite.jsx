@@ -3,15 +3,17 @@ import React, { useState } from "react";
 // import axiosUrl from '../utils/axioxUrl';
 export default function CommentWrite({ post_id }) {
   // console.log(axiosUrl)
-  console.log(post_id, "post ID ");
+  // console.log(post_id, "post ID ");
   const token = localStorage.getItem("token");
-  const [data, setData] = useState({
-    comment: "",
-  });
+  const [comment, setComment] = useState('');
+
   const onSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/v1/comment", data, {
+      .post("http://localhost:8000/api/v1/comment", {
+        comment: comment,
+        postId: post_id,
+      }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -23,20 +25,13 @@ export default function CommentWrite({ post_id }) {
         console.log(err);
       });
   };
-  const inputeChange = (event) => {
-    const { value, name } = event.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
   return (
     <div>
       <form>
         <input
-          onChange={inputeChange}
+          onChange={(e) => setComment(e.target.value)}
           name="comment"
-          value={data.comment}
+          value={comment}
           type="text"
           placeholder="Сэтгэгдэл бичих ......"
           className="input input-bordered w-full max-w-xs"
