@@ -17,7 +17,7 @@ export default function Card({ posts }) {
               />
             </figure>
             <div className="card-body">
-              <span className=" text-2xl font-semibold underline">  
+              <span className=" text-2xl font-semibold underline">
                 {posts[i]?.createUser?.name}{" "}
               </span>
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
@@ -38,6 +38,7 @@ export default function Card({ posts }) {
                 description={posts[el]?.description}
                 name={posts[el]?.name}
                 img={posts[el]?.photo}
+                _id={posts[el]?._id}
               />
               <div className="card-actions justify-end">
                 <Link to={`read/${index._id}`}>
