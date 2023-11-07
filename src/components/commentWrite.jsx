@@ -5,19 +5,23 @@ export default function CommentWrite({ post_id }) {
   // console.log(axiosUrl)
   // console.log(post_id, "post ID ");
   const token = localStorage.getItem("token");
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/v1/comment", {
-        comment: comment,
-        postId: post_id,
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      .post(
+        "http://localhost:8000/api/v1/comment",
+        {
+          comment: comment,
+          postId: post_id,
         },
-      })
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then(() => {
         alert("comment done ");
       })

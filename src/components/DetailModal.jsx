@@ -8,13 +8,10 @@ export default function DetailModal({ title, _id, name, description, img }) {
   console.log(_id, "DETAILS  : id ");
   axios
     .get(`http://localhost:8000/api/v1/post/${_id}/comments`)
-    .then((res) => console.log(res.data.data))
+    .then((res) => setComment(res.data.data))
     .catch((err) => {
       console.log(err);
     });
-  {
-    console.log(comment);
-  }
   return (
     <div>
       <dialog id="my_modal_1" className="modal">
