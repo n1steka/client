@@ -9,7 +9,10 @@ export default function Card({ posts }) {
     <div className="">
       {posts.map((index, i) => {
         return (
-          <div className="flex card lg:card-side bg-base-100 shadow-xl    mx-auto w-[800px]  my-12">
+          <div
+            key={i}
+            className="flex card lg:card-side bg-base-100 shadow-xl    mx-auto w-[800px]  my-12"
+          >
             <figure>
               <img
                 src={`http://localhost:8000/uploads/${index.photo}`}
@@ -30,21 +33,17 @@ export default function Card({ posts }) {
                   document.getElementById("my_modal_1").showModal();
                 }}
               >
-                open modal
+                дэлгэрэнгүй
               </button>
 
-              <DetailModal
+              {/* <DetailModal
                 title={posts[el]?.title}
                 description={posts[el]?.description}
                 name={posts[el]?.name}
                 img={posts[el]?.photo}
                 _id={posts[el]?._id}
-              />
-              <div className="card-actions justify-end">
-                <Link to={`read/${index._id}`}>
-                  <button className="btn btn-primary">Дэлгэрэнгүй</button>{" "}
-                </Link>
-              </div>
+              /> */}
+              <div className="card-actions justify-end"></div>
             </div>
           </div>
         );
