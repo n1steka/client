@@ -13,7 +13,7 @@ export default function Header() {
       url: "/MyPost",
     },
     {
-      name: "Post",
+      name: "Add post ",
       url: "/Post",
     },
     {
@@ -26,7 +26,7 @@ export default function Header() {
     <div className="navbar bg-base-100  lg:px-12 xl:px-12    sticky ">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl ">
-          <img src={images.Logo} width={50} />{" "}
+          <img src={images.Logo} width={50} />
         </a>
       </div>
       <div className="">
