@@ -16,7 +16,7 @@ export default function ResgisterForm() {
     info.set("description", data.description);
     info.set("file", data.file);
     await axios
-      .post("http://localhost:8000/api/v1/post", info, {
+      .post("http://localhost:8000/api/v1/user", info, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,29 @@ export default function ResgisterForm() {
         <form>
           <div className="form-control w-full ">
             <label className="label">
-              <span className="label-text">Гарчиг бичнэ үү! </span>
+              <span className="label-text"> Нэр : </span>
+            </label>
+            <input
+              onChange={onInputChange}
+              name="title"
+              value={data.title}
+              type="text"
+              placeholder="Гарчиг"
+              className="input input-bordered  w-full"
+            />
+            <label className="label">
+              <span className="label-text"> Утас : </span>
+            </label>
+            <input
+              onChange={onInputChange}
+              name="title"
+              value={data.title}
+              type="text"
+              placeholder="Гарчиг"
+              className="input input-bordered  w-full"
+            />
+            <label className="label">
+              <span className="label-text"> Имэйл : </span>
             </label>
             <input
               onChange={onInputChange}

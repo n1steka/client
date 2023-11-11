@@ -74,6 +74,9 @@ export default function LoginForm() {
             >
               Нэвтрэх
             </button>
+            <a className="   underline" href={"/register"}>
+               Бүртгэл үүсгэх
+            </a>
           </div>
         </div>
       </div>
