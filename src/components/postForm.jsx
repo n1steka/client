@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function PostForm() {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -25,6 +27,7 @@ export default function PostForm() {
         alert("Нийтлэл амжилттай");
       })
       .catch((er) => alert(er.response.data.error));
+    navigate("/MyPost");
   };
 
   const onInputChange = (event) => {
