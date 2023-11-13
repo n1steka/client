@@ -13,6 +13,7 @@ export default function MyProfile() {
         </div>
       </div>
       <MyprofileForm
+        id={userInfo._id}
         name={userInfo.name}
         phone={userInfo.phone}
         email={userInfo.email}
