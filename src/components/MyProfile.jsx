@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MyprofileForm from "./MyprofileForm";
-
+import axios from "axios";
 export default function MyProfile() {
-  const userInfo = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  const [userInfo, setuserInfo] = useState([]);
+  useEffect(() => {
+    axios
+      .post(
+        "http://localhost:8000/api/v1/user/loginUserInfo",
+        {
+          status: "1",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        setuserInfo(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err.response.data.msg);
+      });
+  }, []);
   return (
     <div>
       <div className="flex justify-center">
