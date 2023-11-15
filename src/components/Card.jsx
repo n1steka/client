@@ -24,8 +24,10 @@ export default function Card({ posts }) {
                 {posts[i]?.createUser?.name}{" "}
               </span>
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
+
               <p>{index.description}</p>
               <CommentWrite post_id={index._id} />
+
               <button
                 className="btn"
                 onClick={() => {
@@ -43,6 +45,7 @@ export default function Card({ posts }) {
                 img={posts[el]?.photo}
                 _id={posts[el]?._id}
               /> */}
+
               <div className="card-actions justify-end"></div>
             </div>
           </div>

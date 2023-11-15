@@ -6,7 +6,7 @@ export default function CommentWrite({ post_id }) {
   // console.log(post_id, "post ID ");
   const token = localStorage.getItem("token");
   const [comment, setComment] = useState("");
-
+  const [like, setLike] = useState(0);
   const onSubmit = (e) => {
     e.preventDefault();
     axios
@@ -30,7 +30,7 @@ export default function CommentWrite({ post_id }) {
       });
   };
   return (
-    <div>
+    <div className="flex flex-row">
       <form>
         <input
           onChange={(e) => setComment(e.target.value)}
@@ -44,6 +44,16 @@ export default function CommentWrite({ post_id }) {
           Нэмэх
         </button>
       </form>
+      <button
+        onClick={() => {
+          setLike(like + 1);
+        }}
+        class="bg-blue-500 hover:bg-blue-700 ml-4 h-[45px]
+               text-white font-bold py-2 px-4 rounded w-[80px]"
+      >
+        (like)
+      </button>
+      <span className="ml-2 mt-2 font-bold text-2xl"> {like}</span>
     </div>
   );
 }
