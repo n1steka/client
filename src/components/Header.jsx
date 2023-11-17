@@ -50,6 +50,7 @@ export default function Header() {
             className="input input-bordered w-24 md:w-auto"
           />
         </div>
+
         {user ? <Profile /> : <a href="/login">Login</a>}
       </div>
     </div>

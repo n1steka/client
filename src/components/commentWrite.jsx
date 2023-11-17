@@ -7,6 +7,9 @@ export default function CommentWrite({ post_id }) {
   const token = localStorage.getItem("token");
   const [comment, setComment] = useState("");
   const [like, setLike] = useState(0);
+  // if (!like) {
+  //   alert("Та  like  дарсан байна ");
+  // }
   const onSubmit = (e) => {
     e.preventDefault();
     axios
@@ -40,7 +43,10 @@ export default function CommentWrite({ post_id }) {
           placeholder="Сэтгэгдэл бичих ......"
           className="input input-bordered w-full max-w-xs"
         />
-        <button onClick={onSubmit} className="ml-2 btn btn-active   ">
+        <button
+          onClick={onSubmit}
+          className="ml-2 btn btn-active   my-4 w-[250px] "
+        >
           Нэмэх
         </button>
       </form>
@@ -48,7 +54,7 @@ export default function CommentWrite({ post_id }) {
         onClick={() => {
           setLike(like + 1);
         }}
-        class="bg-blue-500 hover:bg-blue-700 ml-4 h-[45px]
+        class="bg-blue-400 hover:bg-blue-700 ml-4 h-[45px]
                text-white font-bold py-2 px-4 rounded w-[80px]"
       >
         (like)
