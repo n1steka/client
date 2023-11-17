@@ -17,7 +17,7 @@ export default function MyPost() {
   }, []);
   return (
     <MainLayout>
-      <Card posts={posts} />
+      <Card posts={posts} update="update" />
     </MainLayout>
   );
 }

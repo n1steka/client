@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { images } from "../constans";
 import CommentWrite from "./commentWrite";
 import DetailModal from "../components/DetailModal";
 import { Link } from "react-router-dom";
-export default function Card({ posts }) {
+import { useRef, useState } from "react";
+import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+
+export default function Card({ posts, update }) {
   const [el, setEl] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
+  const emailInputRef = useRef < HTMLInputElement > null;
   return (
     <div className="">
       {posts.map((index, i) => {
@@ -19,10 +24,21 @@ export default function Card({ posts }) {
                 alt="Album"
               />
             </figure>
+
             <div className="card-body">
               <span className=" text-2xl font-semibold underline">
                 {posts[i]?.createUser?.name}{" "}
               </span>
+              {update ? (
+                <button className="btn btn-outline btn-info w-[80px] ml-[280px]">
+                  update
+                </button>
+              ) : null}
+              {update ? (
+                <button className="btn btn-outline btn-secondary w-[80px] ml-[280px]">
+                  delete
+                </button>
+              ) : null}
               <h2 className="  text-xl font-medium"> title : {index.title}</h2>
 
               <p>{index.description}</p>
