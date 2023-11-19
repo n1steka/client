@@ -50,15 +50,16 @@ export default function Card({ posts, update }) {
                 }}
               >
                 дэлгэрэнгүй
+                <div className="my-2">
+                  {/* <DetailModal
+                    title={posts[el]?.title}
+                    description={posts[el]?.description}
+                    name={posts[el]?.name}
+                    img={posts[el]?.photo}
+                    _id={posts[el]?._id}
+                  /> */}
+                </div>
               </button>
-
-              {/* <DetailModal
-                title={posts[el]?.title}
-                description={posts[el]?.description}
-                name={posts[el]?.name}
-                img={posts[el]?.photo}
-                _id={posts[el]?._id}
-              /> */}
 
               <div className="card-actions justify-end"></div>
             </div>
