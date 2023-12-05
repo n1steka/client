@@ -68,6 +68,9 @@ export default function LoginForm() {
                 />
               </div>
             </form>
+            <label className="label">
+              <span className="label-text-alt"> Нууц үг сэргээх</span>
+            </label>
             <button
               onClick={onSubmit}
               className=" flex mx-auto btn btn-active btn-neutral mb-4 mt-4 "
@@ -75,7 +78,7 @@ export default function LoginForm() {
               Нэвтрэх
             </button>
             <a className="   underline" href={"/register"}>
-               Бүртгэл үүсгэх
+              Бүртгэл үүсгэх
             </a>
           </div>
         </div>
