@@ -1,17 +1,23 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CommentList from "./CommentList";
 export default function DetailModal({ title, _id, name, description, img }) {
   const [comment, setComment] = useState([]);
   // const { id } = useParams();
   console.log(_id, "DETAILS  : id ");
-  axios
-    .get(`http://localhost:8000/api/v1/post/${_id}/comments`)
-    .then((res) => setComment(res.data.data))
-    .catch((err) => {
-      console.log(err);
-    });
+
+  const fetchData = () => {
+    axios
+      .get(`http://localhost:8000/api/v1/post/${_id}/comments`)
+      .then((res) => setComment(res.data.data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  useEffect(() => {
+    fetchData();
+  }, [_id])
   return (
     <div>
       <dialog id="my_modal_1" className="modal">
