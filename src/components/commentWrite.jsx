@@ -29,7 +29,7 @@ export default function CommentWrite({ post_id }) {
         alert("comment done ");
       })
       .catch((err) => {
-        console.log(err);
+        err.response.data.msg === "Invalid token. Please log in again." ? alert("Эхлээд нэвтрэнэ үү ! ") : console.log(err.response.data.msg)
       });
   };
   return (

@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 export default function MyprofileForm({ name, email, phone, id }) {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ export default function MyprofileForm({ name, email, phone, id }) {
     email: email,
     phone: phone,
   });
+
   const onInputChange = (event) => {
     const { value, name } = event.target;
     setData({
@@ -16,13 +18,15 @@ export default function MyprofileForm({ name, email, phone, id }) {
       [name]: value,
     });
   };
+
   const onSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+
     const info = new FormData();
-    info.set("nameS", data.name);
-    info.set("emailS", data.email);
-    info.set("phoneS", data.phone);
-    info.set("file", data.file);
+    info.set("name", data?.name);
+    info.set("email", data?.email);
+    info.set("phone", data?.phone);
+    info.set("file", data?.file);
 
     axios
       .put(`http://localhost:8000/api/v1/user/${id}`, info, {
@@ -31,28 +35,30 @@ export default function MyprofileForm({ name, email, phone, id }) {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
-        navigate("/profile"); // Move this line here
+        console.log(res.data?.data);
+        navigate("/profile");
       })
       .catch((er) => alert(er.response.data.error));
 
     console.log(token);
   };
+
   const onFileChange = (event) => {
     setData({
       ...data,
-      file: event.target.files[0],
+      file: event.target.files?.[0],
     });
   };
+
   return (
-    <div className=" flex justify-center mt-12">
-      <form>
-        <div className="mx-auto  flex flex-col">
-          id : {id}
+    <div className="flex justify-center mt-12">
+      <form onSubmit={onSubmit}>
+        <div className="mx-auto flex flex-col">
+          <p>id : {id}</p>
           <input
             onChange={onInputChange}
             type="text"
-            name="nameS"
+            name="name"
             placeholder={name}
             value={data.name}
             className="input input-bordered w-full max-w-xs my-2"
@@ -60,7 +66,7 @@ export default function MyprofileForm({ name, email, phone, id }) {
           <input
             onChange={onInputChange}
             type="text"
-            name="emailS"
+            name="email"
             placeholder={email}
             value={data.email}
             className="input input-bordered w-full max-w-xs my-2"
@@ -68,7 +74,7 @@ export default function MyprofileForm({ name, email, phone, id }) {
           <input
             onChange={onInputChange}
             type="text"
-            name="phoneS"
+            name="phone"
             value={data.phone}
             placeholder={phone}
             className="input input-bordered w-full max-w-xs my-2"
@@ -80,8 +86,8 @@ export default function MyprofileForm({ name, email, phone, id }) {
           />
           <br />
           <button
-            onClick={onSubmit}
-            className="w-[100px] btn btn-neutral my-4  p-4"
+            type="submit"
+            className="w-[100px] btn btn-neutral my-4 p-4"
           >
             шинэчлэх
           </button>

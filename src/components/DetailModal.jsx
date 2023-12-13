@@ -19,15 +19,12 @@ export default function DetailModal({ title, _id, name, description, img }) {
     fetchData();
   }, [_id])
   return (
-    <div>
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
+    <div className=" my-2 ">
+      <dialog id="my_modal_1" className=" w-[full] modal ">
+        <div className="modal-box my-2 w-[1200px]">
           <span className="text-xl">{title}</span>
-          <span className="text-xl"> description {description} </span>
-          <span className="text-xl   font">{_id} </span>
-          <p className="py-4">test modal</p> <p>{img}</p>
-          <img src={`http://localhost:8000/uploads/${img}`} alt="Album" />
+          <span className="text-xl"> description : {description} </span>
+          <img src={`http://localhost:8000/uploads/${img}`} className=" my-2  md:w-[400px]" alt="Album" />
           <CommentList comment={comment} />
           <div className="modal-action">
             <form method="dialog">

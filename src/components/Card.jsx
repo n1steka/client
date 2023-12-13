@@ -4,20 +4,22 @@ import CommentWrite from "./commentWrite";
 import DetailModal from "../components/DetailModal";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
+import CommentList from "./CommentList";
 
 export default function Card({ posts, update }) {
   const [el, setEl] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   return (
-    <div className="">
+    <div className="max-w-[1400px] ">
       {posts.map((index, i) => {
         return (
           <div
             key={i}
-            className="flex card lg:card-side bg-base-100 shadow-xl    mx-auto w-[800px]  my-12"
+            className="flex card lg:card-side bg-base-100 shadow-xl  mx-auto w-[1200px]"
           >
             <figure>
               <img
+                className="w-[600px]"
                 src={`http://localhost:8000/uploads/${index.photo}`}
                 alt="Album"
               />
@@ -37,12 +39,11 @@ export default function Card({ posts, update }) {
                   delete
                 </button>
               ) : null}
-              <h2 className="  text-xl font-medium"> title : {index.title}</h2>
-
+              <h2 className="text-2xl text-blue-400 font-medium">  {index.title}</h2>
               <p>{index.description}</p>
-              <CommentWrite post_id={index._id} />
+              <CommentList commentId={index?._id} />
 
-              <button
+              {/* <button
                 className="btn"
                 onClick={() => {
                   setEl(i);
@@ -59,9 +60,10 @@ export default function Card({ posts, update }) {
                     _id={posts[el]?._id}
                   />
                 </div>
-              </button>
-
+              </button> */}
               <div className="card-actions justify-end"></div>
+              <CommentWrite post_id={index._id} />
+
             </div>
           </div>
         );
