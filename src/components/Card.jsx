@@ -10,7 +10,7 @@ export default function Card({ posts, update }) {
   const [el, setEl] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   return (
-    <div className="max-w-[1400px] ">
+    <div className="max-w-[1400px] my-12 ">
       {posts.map((index, i) => {
         return (
           <div
